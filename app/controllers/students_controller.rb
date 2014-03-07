@@ -27,17 +27,7 @@ class StudentsController < ApplicationController
 
   get '/students/:slug' do
     @student          = Student.find_by(slug: params[:slug])
-    @name             = @student.name
-    @profile_image    = @student.profile_image
-    @background_image = @student.background_image
-    @twitter          = @student.twitter
-    @linkedin         = @student.linkedin
-    @github           = @student.github
-    @quote            = @student.quote
-    @bio              = @student.bio
-    @work             = @student.work
-    @work_title       = @student.work_title
-    @education        = @student.education
+
     erb :"students/show_student.html"
   end
 

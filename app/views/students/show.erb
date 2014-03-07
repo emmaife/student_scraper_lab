@@ -6,6 +6,11 @@
   <!-- show attributes for a single student here -->
 
    <h1><%= @student.name %></h1>
+   <dl class="dl-horizontal">
+      <dt></dt>
+      <dd></dd>
+  </dl>
+
   <ul>
     <li>Name: <%= @student.name %></li>
     <li>Quote: <%= @student.quote %></li>
@@ -20,6 +25,6 @@
 
   </ul>
 
-  <a class="button" href="/">Back</a> 
-  <a class="button" href="/students/<%= @student.id %>/edit">Edit</a>  
-  <a class="button" href="/students/<%= @student.id %>/destroy">Destroy</a>
+  <a class="btn btn-default" href="/">Back</a> 
+  <a class="btn btn-default" href="/students/<%= @student.id %>/edit">Edit</a>  
+  <a class="btn btn-danger" href="/students/<%= @student.id %>/destroy">Destroy</a>

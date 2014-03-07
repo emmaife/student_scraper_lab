@@ -13,21 +13,24 @@ class StudentsController < ApplicationController
   # Build the rest of the routes here.
 
   get '/students/new' do
-    @student = Student.new
+    params[:student] ||= {}
+    params[:student][:education] ||= ""
+    @student = Student.new(params[:student])
     erb :"students/edit.html"
   end
 
   post '/students' do
-    params[:students][:education].gsub!(/\n/, ",")
+    params[:student][:education].gsub!(/\n/, ",")
     student = Student.create(params[:student])
     redirect "/students/#{student.slug}", 303
   end
   # GET '/students/avi-flombaum'
   # GET '/students/avi-flombaum/edit'
   # POST '/students/avi-flombaum'
+  
   get '/students/:slug/edit' do
-    @student = Student.find(params[:slug])
-    erb :"students/edit"
+    @student = Student.find_by(slug: params[:slug])
+    erb :"students/edit.html"
   end
 
   post '/students/:slug' do

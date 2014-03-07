@@ -8,37 +8,50 @@
 
   <label for="name">Name</label>
   <input type="text" id="name" name="student[name]" value="<%= @student.name %>">
+  <br />
 
   <label for="image">Profile Image URL</label>
-  <input type="text" id="image" name="student[image]" value="<%= @student.profile_image %>">
+  <input type="text" id="profile_image" name="student[profile_image]" value="<%= @student.profile_image %>">
+  <br />
 
   <label for="color">Background Image URL</label>
-  <input type="text" id="bg" name="student[bg]" value="<%= @student.background_image %>">
+  <input type="text" id="bg" name="student[background_image]" value="<%= @student.background_image %>">
+  <br />
 
   <label for="lives">Twitter</label>
   <input type="text" id="twitter" name="student[twitter]" value="<%= @student.twitter %>">
+  <br />
 
   <label for="lives">LinkedIn</label>
   <input type="text" id="linkedin" name="student[linkedin]" value="<%= @student.linkedin %>">
+  <br />
 
   <label for="lives">Github</label>
   <input type="text" id="github" name="student[github]" value="<%= @student.github %>">
+  <br />
 
   <label for="lives">Quote</label>
   <input type="text" id="quote" name="student[quote]" value="<%= @student.quote %>">
+  <br />
 
   <label for="lives">Bio</label>
   <input type="text" id="bio" name="student[bio]" value="<%= @student.bio %>">
+  <br />
 
   <label for="lives">Work</label>
   <input type="text" id="work" name="student[work]" value="<%= @student.work %>">
+  <br />
 
   <label for="lives">Work Title</label>
-  <input type="text" id="worktitle" name="student[worktitle]" value="<%= @student.worktitle %>">
+  <input type="text" id="work-title" name="student[work_title]" value="<%= @student.work_title %>">
+  <br />
 
   <label for="lives">Education</label>
+  <br />
   <textarea id="education" name="student[education]" cols="40" rows="5">
-    <%= @student.education.gsub(/,/, "\n") %></textarea>
+    <%= @student.education.gsub(/,/, "\n") if @student.education %>
+  </textarea>
+  <br />
 
   <input type="submit" value="<%= @student.id ? "update" : "create" %>">
   

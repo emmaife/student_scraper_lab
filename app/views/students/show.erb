@@ -1,0 +1,25 @@
+  <img src="http://students.flatironschool.com/<%= @student.profile_image %>" width="300">
+
+
+
+
+  <!-- show attributes for a single student here -->
+
+   <h1><%= @student.name %></h1>
+  <ul>
+    <li>Name: <%= @student.name %></li>
+    <li>Quote: <%= @student.quote %></li>
+    <li>Bio: <%= @student.bio %></li>
+    <li>Education: <%= @student.education %></li>
+    <li>Work: <%= @student.work %></li>
+    <li>Work title: <%= @student.work_title %></li>
+    <li>Personal projects: <%= @student.personal_project %></li>
+    <li><a href="<%= @student.twitter %>" target=_blank>Twitter</a></li>
+    <li><a href="<%= @student.linkedin %>" target=_blank>LinkedIn</a></li>
+    <li><a href="<%= @student.github %>" target=_blank>Github</a></li>
+
+  </ul>
+
+  <a class="button" href="/">Back</a> 
+  <a class="button" href="/students/<%= @student.id %>/edit">Edit</a>  
+  <a class="button" href="/students/<%= @student.id %>/destroy">Destroy</a>

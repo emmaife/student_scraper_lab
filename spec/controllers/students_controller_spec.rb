@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require 'pry'
 
 describe StudentsController do
   # Every route should be within it's own context.
@@ -53,6 +54,21 @@ describe StudentsController do
   end
 
   context 'GET /students/slug' do
+  end
+
+  context 'GET /students/1' do
+
+    before do
+      #let(:student){Student.new.tap{|s| s.name = "Flatiron Student"}}
+      student = Student.create(:name => 'laura conwill')
+      #binding.pry
+      get "/students/#{student.slug}"
+    end
+
+    it 'responsed with a 200' do
+      expect(last_response).to be_ok
+    end
+
   end
 
   # This context should only be about testing the edit form.

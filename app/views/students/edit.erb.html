@@ -1,0 +1,47 @@
+<% if @student.id %>
+  <h1>Edit <%= @student.name %></h1>
+<% else %>
+  <h1>Create New Student</h1>
+<% end %>
+
+<form action="/students<%= "/#{@student.slug}" if @student.id %>" method="POST">
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="student[name]" value="<%= @student.name %>">
+
+  <label for="image">Profile Image URL</label>
+  <input type="text" id="image" name="student[image]" value="<%= @student.profile_image %>">
+
+  <label for="color">Background Image URL</label>
+  <input type="text" id="bg" name="student[bg]" value="<%= @student.background_image %>">
+
+  <label for="lives">Twitter</label>
+  <input type="text" id="twitter" name="student[twitter]" value="<%= @student.twitter %>">
+
+  <label for="lives">LinkedIn</label>
+  <input type="text" id="linkedin" name="student[linkedin]" value="<%= @student.linkedin %>">
+
+  <label for="lives">Github</label>
+  <input type="text" id="github" name="student[github]" value="<%= @student.github %>">
+
+  <label for="lives">Quote</label>
+  <input type="text" id="quote" name="student[quote]" value="<%= @student.quote %>">
+
+  <label for="lives">Bio</label>
+  <input type="text" id="bio" name="student[bio]" value="<%= @student.bio %>">
+
+  <label for="lives">Work</label>
+  <input type="text" id="work" name="student[work]" value="<%= @student.work %>">
+
+  <label for="lives">Work Title</label>
+  <input type="text" id="worktitle" name="student[worktitle]" value="<%= @student.worktitle %>">
+
+  <label for="lives">Education</label>
+  <textarea id="education" name="student[education]" cols="40" rows="5">
+    <%= @student.education.gsub(/,/, "\n") %></textarea>
+
+  <input type="submit" value="<%= @student.id ? "update" : "create" %>">
+  
+</form>
+
+<a class="button" href="/students">Cancel</a>

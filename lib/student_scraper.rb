@@ -108,6 +108,8 @@ class StudentScraper
   end
 
   def relative(url)
+    ext = (url.slice!(-4..-1)).downcase
+    url.concat(ext)
     url.include?("http") ? url : self.main_index_url+(url[2..-1])
   end
 end

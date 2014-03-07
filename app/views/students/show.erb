@@ -7,23 +7,23 @@
 
    <h1><%= @student.name %></h1>
    <dl class="dl-horizontal">
-      <dt></dt>
-      <dd></dd>
+      <dt>Quote</dt>
+      <dd><%= @student.quote %></dd>
+      <dt>Bio</dt>
+      <dd><%= @student.bio %></dd>
+      <dt>Education</dt>
+      <dd><%= @student.education %></dd>
+      <dt>Work</dt>
+      <dd><%= @student.work %></dd>
+      <dt>Work title</dt>
+      <dd><%= @student.work_title %></dd>
+      <dt>Personal Projects</dt>
+      <dd><%= @student.personal_project %><dd>
+      <dt>Social Media</dt>
+      <dd><a href="<%= @student.twitter %>" target=_blank>Twitter</a></dd>
+      <dd><a href="<%= @student.linkedin %>" target=_blank>LinkedIn</a></dd>
+      <dd><a href="<%= @student.github %>" target=_blank>Github</a></dd>
   </dl>
-
-  <ul>
-    <li>Name: <%= @student.name %></li>
-    <li>Quote: <%= @student.quote %></li>
-    <li>Bio: <%= @student.bio %></li>
-    <li>Education: <%= @student.education %></li>
-    <li>Work: <%= @student.work %></li>
-    <li>Work title: <%= @student.work_title %></li>
-    <li>Personal projects: <%= @student.personal_project %></li>
-    <li><a href="<%= @student.twitter %>" target=_blank>Twitter</a></li>
-    <li><a href="<%= @student.linkedin %>" target=_blank>LinkedIn</a></li>
-    <li><a href="<%= @student.github %>" target=_blank>Github</a></li>
-
-  </ul>
 
   <a class="btn btn-default" href="/">Back</a> 
   <a class="btn btn-default" href="/students/<%= @student.id %>/edit">Edit</a>  

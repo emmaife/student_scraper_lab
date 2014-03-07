@@ -21,5 +21,3 @@ gem 'capybara'
 gem 'terminal-notifier-guard'
 gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 gem 'rack-test'
-
-# empty comment

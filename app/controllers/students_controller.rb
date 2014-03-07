@@ -1,7 +1,14 @@
 # StudentsController inherits from ApplicationController
 # so any settings defined there will apply to this controller.
-class StudentsController < ApplicationController
 
+  get '/' do
+    # Homepage action to display the student index.
+    # Load all the students into an instance variable.
+    # We use the ::all method on the Student class, provided by Sequel
+    @students = Student.all
+    erb :'students/index.html' # render the index.erb within app/views/students
+
+  end
 
   get '/students/new' do
     params[:student] ||= {}
@@ -15,7 +22,6 @@ class StudentsController < ApplicationController
     student = Student.create(params[:student])
     redirect "/students/#{student.slug}", 303
   end
-
 
 
   get '/students/:slug' do

@@ -9,7 +9,6 @@ use Rack::MethodOverride
 #use Rack::Static, :root => 'public', :urls => ['/']
 
 
-
 use StudentsController
 # Mount the main controller as our Rack Application.
 run ApplicationController

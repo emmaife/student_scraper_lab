@@ -25,6 +25,6 @@
       <dd><a href="<%= @student.github %>" target=_blank>Github</a></dd>
   </dl>
 
-  <a class="btn btn-default" href="/">Back</a> 
-  <a class="btn btn-default" href="/students/<%= @student.id %>/edit">Edit</a>  
-  <a class="btn btn-danger" href="/students/<%= @student.id %>/destroy">Destroy</a>
+  <a class="btn btn-default" href="/students">Back</a> 
+  <a class="btn btn-default" href="/students/<%= @student.slug %>/edit">Edit</a>  
+  <a class="btn btn-danger" href="/students/<%= @student.slug %>/destroy">Destroy</a>

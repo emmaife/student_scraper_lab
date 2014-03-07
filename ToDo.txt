@@ -3,10 +3,10 @@
 2.)  DONE: Take the scraped students and import into the database (migrations)
 ________________________________________________
 
-3.)  Student index Page - Michael
+3.)  Student index Page - Eugene
 4.)  Student Profile Page - Laura
 5.)  CSS/JS ?
-6.)  Create new students (/students/new) - Eugene
+6.)  Create new students (/students/new) - Michael 
 7.)  Update a Student - Kevin
  
 

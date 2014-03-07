@@ -1,7 +1,11 @@
 ENV["SINATRA_ENV"] ||= "development"
 
 require 'sinatra/activerecord/rake'
-require_relative './config/environment'
+require './config/environment'
+
+task :environment do
+  require './config/environment'
+end
 
 desc 'Load a pry console'
 task :console => [:environment] do
@@ -10,7 +14,7 @@ end
 
 # IMPORTANT - READ THIS TASK!
 # This is the method in which you will initiate the scrape
-# of the student site to populate your development database. 
+# of the student site to populate your development database.
 desc 'Scrape the student site'
 task :scrape_students do
   # First, load the student scraper, it isn't really part of our environment

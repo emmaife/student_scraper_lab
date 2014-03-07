@@ -39,12 +39,12 @@ class StudentScraper
   end
 
   def parse_profile_image(student_page)
-    student_page.css('.top-page-title div img')[0].attributes["src"].value
+    relative(student_page.css('.top-page-title div img')[0].attributes["src"].value)
   end
 
   def parse_background_image(student_page)
     begin
-      student_page.css('style')[0].children[0].to_s[/\((.*?)\)/][1...-1]
+      relative(student_page.css('style')[0].children[0].to_s[/\((.*?)\)/][1...-1])
     rescue
       value_missing
     end
@@ -105,5 +105,10 @@ class StudentScraper
     index_page.css('li.home-blog-post div.blog-thumb a').collect do |link|
       link.attr('href')
     end
+  end
+
+  def relative(url)
+    url = self.main_index_url.concat(url) unless url.include?("http://")
+    url
   end
 end

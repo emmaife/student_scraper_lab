@@ -1,11 +1,11 @@
 ---
-tags: student-project, sinatra, sequel-orm, rspec
+tags: student-project, sinatra, activerecord, rspec
 language: ruby
 ---
 
 # Sinatra Students
 
-You're going to build a full CRUD application for the Student Website, powered by Sinatra.
+You're going to build a full CRUD application for the Student Website, powered by Sinatra and ActiveRecord.
 
 # Setup
 
@@ -76,7 +76,7 @@ Migrations are a mechanism for creating our schema through code rather then sequ
 
 ## Racking Up the Application
 
-Start the application with `rackup`.
+Start the application with `shotgun` or `rackup`.
 
 # Objectives
 
@@ -84,7 +84,7 @@ Start the application with `rackup`.
 
 You need to integrate a scrape class into this project to populate your development database.
 
-We suggest using [StudentScraper](https://github.com/flatiron-school/student-scraper-db-003-unit-1/blob/master/lib/models/student_scraper.rb) as a basis for your scrape.
+We suggest using [StudentScraper] that's included as a basis for your scrape. Read it all.
 
 The scrape can be run via running the rake task scrape_students.
 
@@ -104,19 +104,7 @@ rake aborted!
 undefined method `profile_image=' for #<Student @values={:id=>1, :name=>"Alex Chiu"}>
 ```
 
-While you could solve this with `attr_accessor :profile_image`, that will not persist the data to your database. Instead, add a new migration to the `db/migrate` folder, maybe named `02_add_profile_image_to_students.rb`. That file should contain:
-
-```ruby
-Sequel.migration do
-  up do 
-    add_column :students, :profile_image, Strings
-  end
-
-  down do
-    remove_column :students, :profile_image
-  end
-end
-```
+While you could solve this with `attr_accessor :profile_image`, that will not persist the data to your database. Instead, add a new migration to the `db/migrate` folder, maybe named `02_add_profile_image_to_students.rb`. That file should contain the appropriate migration.
 
 Then you can migrate your database via `rake db:migrate`.
 
@@ -126,7 +114,7 @@ Go into the `lib/student_scraper.rb` and find all the missing attributes. Try to
 
 Feel free to write tests to make sure that the student has those attributes but as they are provided by Sequel, they are already tested. We only test code we write (like the future `Student#slug` method).
 
-When you are done, you should be able to `open db/students-development.db` and see a populated students table.
+When you are done, you should be able to `open db/development.sqlite3` and see a populated students table.
 
 The scrape should force you to construct a pretty solid Student ORM class.
 
@@ -182,7 +170,7 @@ context 'POST /students' do
   it 'accepts the form data and creates a student with those attributes' do
     # The `post` Rack::Test method takes a second argument of a POST data hash.    
     post '/students', {:name => "Avi Flombaum"}
-    expect(Student.find(:name => "Avi Flombaum")).to be_a(Student)
+    expect(Student.find_by(:name => "Avi Flombaum")).to be_a(Student)
   end
 end
 ```
@@ -196,6 +184,12 @@ Spec this out too.
 # Polish
 
 Go to town, get 100% coverage, add features, maybe FileUploads through a gem that plays nice with Sequel. Make it as realistic as possible.
+
+# Notes
+
+We recently repackaged this lab to work with ActiveRecord and not Sequel. You might get some errors.
+
+*We highly recommend you read the entire codebase first.*
 
 # Submitting Your Solution
 

@@ -12,8 +12,16 @@ class StudentsController < ApplicationController
 
   # Build the rest of the routes here.
 
-  # GET '/students/new'
-  # POST '/students'
+  get '/students/new' do
+    @student = Student.new
+    erb :"students/edit.html"
+  end
+
+  post '/students' do
+    params[:students][:education].gsub!(/\n/, ",")
+    student = Student.create(params[:student])
+    redirect "/students/#{student.slug}", 303
+  end
   # GET '/students/avi-flombaum'
   # GET '/students/avi-flombaum/edit'
   # POST '/students/avi-flombaum'

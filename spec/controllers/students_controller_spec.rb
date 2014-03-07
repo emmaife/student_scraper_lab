@@ -50,6 +50,14 @@ describe StudentsController do
   end
   
   context 'POST /students' do
+    it "creates a new student"
+      expect(Student.find_by(name: "Flatiron Student")).to be_empty
+      post '/students', {student: {name: "Flatiron Student"}}
+      expect(Student.find_by(name: "Flatiron Student")).not_to be_empty
+    end
+
+    it "" do
+    end
   end
 
   context 'GET /students/slug' do

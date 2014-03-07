@@ -17,7 +17,7 @@
   <tbody>
 <% @students.each do |s| %>
   <tr>
-  <td> <img src = "http://students.flatironschool.com<%= s.profile_image[2..-1]%>" style="width:500px;"></td>
+  <td> <img src = "http://students.flatironschool.com<%= s.profile_image%>" style="width:500px;"></td>
   <td><%= s.name %><br/>
     <a href="<%= s.twitter%>">Twitter</a><br/>
     <a href="<%= s.linkedin%>">LinkedIn</a><br/>

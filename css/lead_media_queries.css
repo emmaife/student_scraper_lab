@@ -1,0 +1,128 @@
+.link-subs {
+    width: 100%;
+    max-width: 1000px;
+}
+.main-wrapper{
+    padding: 0 50px;
+    max-width: 1000px;
+}
+.header-wrapper {
+    padding: 0 50px;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: -50px;
+}
+.header-left {
+    min-width: 120px;
+}
+
+/* Tablet and Mobile */
+@media only screen and (max-width:755px) {
+
+}
+
+@media only screen and (max-width: 685px) {
+    .header-wrapper {
+        position: static;
+        padding: 5px;
+        width: 100%;
+        margin: 0 -25px;
+    }
+    .container {
+        padding-top: 10px;
+    }
+    .main-wrapper {
+        padding: 0 25px;
+    }
+    .link-subs ul {
+        text-align: left;
+    }
+    .smooth-scroller {
+        display: none;
+    }
+
+    .go-to-top {
+        display: none;
+    }
+
+    .section .column {
+        width: 100%;
+    }
+
+    .services p {
+        text-align: center;
+    }
+
+    .services li {
+        text-align: center;
+    }
+
+    .services h3 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .services-wrap {
+        width: 100%;
+    }
+
+    .services-title {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .actual-title, .ib_main_header {
+        line-height: normal;
+    }
+
+    .section.coder-cred {
+        margin-left: 0;
+    }
+
+    .section-title {
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    .section-title span {
+        padding: 0;
+    }
+
+    .section-services {
+        padding-bottom: 15px;
+    }
+}
+
+/* nav breaks before 755px */
+@media only screen and (max-width:1000px) {
+    .header-right {
+        float: left;
+        clear: both;
+        width: 100%;
+    }
+    #nav {
+        float: left;
+    }
+    #nav:first-child a {
+        padding-left: 0;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width:500px) {
+    #nav {
+        margin: auto;
+        float: none;
+    }
+    #nav li {
+        float: none;
+        margin: auto;
+        padding: 6px 0px;
+    }
+    #nav a {
+        text-align: center;
+    }
+    #nav .sub-menu li {
+        display: none;
+    }
+}

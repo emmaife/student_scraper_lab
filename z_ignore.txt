@@ -1,0 +1,13 @@
+Stephanie
+  # GET  '/'                                   index of all students
+
+Ariel
+  # GET  '/students/new'                       new student form             form posts to post /students
+  # POST '/students' ==post                    new student                  -->that student
+  
+Miriam
+  # GET  '/students/avi-flombaum'              individual student page
+
+Emma  
+  # GET  '/students/avi-flombaum/edit'         form edit ind student        form posts to post /students/slug
+  # POST '/students/avi-flombaum'              do edit                      -->that student

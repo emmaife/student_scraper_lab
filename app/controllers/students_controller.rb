@@ -1,5 +1,6 @@
 # StudentsController inherits from ApplicationController
 # so any settings defined there will apply to this controller.
+class StudentsController < ApplicationController
 
   get '/' do
     # Homepage action to display the student index.

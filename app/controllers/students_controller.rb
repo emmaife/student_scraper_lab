@@ -10,6 +10,18 @@ class StudentsController < ApplicationController
     erb :'students/index' # render the index.erb within app/views/students
   end
 
+  get '/students/new' do
+    erb :'students/new'
+  end
+
+  post '/students' do 
+    @s = Student.create(params["student"]) if params["student"]
+
+    redirect to "/students#{@s.slug}"
+  end
+
+ 
+
   # Build the rest of the routes here.
 
   # GET '/students/new'

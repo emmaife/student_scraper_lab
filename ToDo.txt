@@ -1,0 +1,12 @@
+
+1.)  Fix Scrape the students (fill in the attributes of students (in lib/student_scraper.rb)
+2.)  Take the scraped students and import into the database (migrations)
+________________________________________________
+
+3.)  Student index Page
+4.)  Student Profile Page
+5.)  CSS/JS ?
+6.)  Create new students (/students/new)
+7.)  Update a Student
+
+

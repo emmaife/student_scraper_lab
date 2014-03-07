@@ -7,7 +7,6 @@ describe Student do
         # Remember that subject will by default be a new instance
         # of the class being described.
         subject.name = "Avi Flombaum"
-        subject.slugify!
 
         expect(subject.slug).to eq('avi-flombaum')
       end

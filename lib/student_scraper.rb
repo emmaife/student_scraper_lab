@@ -43,7 +43,7 @@ class StudentScraper
   end
 
   def parse_background_image(student_page)
-    student_page.css('style')[0].children[0].to_s[/\((.*?)\)/][1...-1]
+    student_page.css('head style').last.children[0].to_s[/\((.*?)\)/][1...-1]
   end
 
   def parse_quote(student_page)

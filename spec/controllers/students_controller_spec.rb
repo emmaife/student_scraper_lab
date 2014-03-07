@@ -47,9 +47,48 @@ describe StudentsController do
   end
   
   context 'GET /students/new' do
+    it "responds to the request" do
+      get 'students/new'
+
+      expect(last_response).to be_ok
+    end
+    
+    it "renders the new student form" do
+      get 'students/new'
+
+      expect(last_response.body).to include("New Student")
+    end
   end
   
   context 'POST /students' do
+    before(:each) do
+      post '/students', {"student"=>
+       {"name"=>"Something",
+        "work"=>"Something",
+        "work_title"=>"Something",
+        "personal_project"=>"Something",
+        "twitter"=>"Something",
+        "linkedin"=>"Something",
+        "github"=>"Something",
+        "profile_image"=>"Something",
+        "background_image"=>"Something",
+        "quote"=>"Something",
+        "bio"=>"Something",
+        "education"=>"Something"}}
+    end
+
+    it "respond to the request" do
+      expect(last_response).to be_ok
+    end
+
+    it "should create a new instance of student" do
+      expect(Student.last.name).to eq("Something")
+    end
+
+    it "should redirect to the student's show page" do
+      expect(last_response).to be_redirect
+    end
+
   end
 
   context 'GET /students/slug' do

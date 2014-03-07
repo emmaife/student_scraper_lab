@@ -1,3 +1,36 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>About</th>
+      <th>Work Title</th>
+      <th>Personal Project</th>
+      <!-- <th>Social Media</th> -->
+      <!-- <th>Twitter</th>
+      <th>Linked In</th>
+      <th>Github</th> -->
+      <th>Quote</th>
+      <th>Bio</th>
+      <th>Education</th>
+    </tr>
+  </thead>
+  <tbody>
 <% @students.each do |s| %>
-  <p><%= s.name %></p>
+  <tr>
+  <td> <img src = "http://students.flatironschool.com<%= s.profile_image[2..-1]%>" style="width:500px;"></td>
+  <td><%= s.name %><br/>
+    <a href="<%= s.twitter%>">Twitter</a><br/>
+    <a href="<%= s.linkedin%>">LinkedIn</a><br/>
+    <a href="<%= s.github%>">Github</a></td>
+  <td> <%= s.work_title%></td>
+  <td> <%= s.personal_project%></td>
+  <!-- <td> <a href="<%= s.twitter%>">Twitter</a>
+       <a href="<%= s.linkedin%>">LinkedIn</a>
+       <a href="<%= s.github%>">Github</a></td> -->
+  <td> <%= s.quote%></td>
+  <td> <%= s.bio.size>100 ? s.bio[0..100]+'...' : s.bio%></td>
+  <td> <%= s.education.size>100 ? s.education[0..100]+'...' : s.education%></td>
+  </tr>
 <% end %>
+</tbody>
+</table>

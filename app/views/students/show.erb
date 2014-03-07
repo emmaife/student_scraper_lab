@@ -1,4 +1,4 @@
-  <img src="http://students.flatironschool.com/<%= @student.profile_image %>" width="300">
+  <img src="<%= @student.profile_image %>" width="300">
 
 
 
@@ -24,7 +24,12 @@
       <dd><a href="<%= @student.linkedin %>" target=_blank>LinkedIn</a></dd>
       <dd><a href="<%= @student.github %>" target=_blank>Github</a></dd>
   </dl>
-
-  <a class="btn btn-default" href="/students">Back</a> 
-  <a class="btn btn-default" href="/students/<%= @student.slug %>/edit">Edit</a>  
-  <a class="btn btn-danger" href="/students/<%= @student.slug %>/destroy">Destroy</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-offset-4">
+        <a style="margin:0 5px;" class="btn btn-default" href="/students">Back</a> 
+        <a style="margin:0 5px;" class="btn btn-default" href="/students/<%= @student.slug %>/edit">Edit</a>  
+        <a style="margin:0 5px;" class="btn btn-danger" href="/students/<%= @student.slug %>/destroy">Destroy</a>
+      </div>
+    </div>
+    </div>

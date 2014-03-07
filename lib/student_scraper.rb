@@ -108,7 +108,6 @@ class StudentScraper
   end
 
   def relative(url)
-    url = self.main_index_url.concat(url[2..-1]) unless url.include?("http://")
-    url
+    url.include?("http") ? url : self.main_index_url+(url[2..-1])
   end
 end

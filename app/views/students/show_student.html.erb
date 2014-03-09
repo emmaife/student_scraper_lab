@@ -5,13 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content ="width=device-width, minimum-scale=1.0, initial-scale=1.0">
   <title>The Flatiron School</title>
-  <link rel='stylesheet' href="../css/font-awesome.css" type='text/css' media='screen' />
-  <link rel='stylesheet' id='google_merriweather-css'  href='http://fonts.googleapis.com/css?family=Merriweather:400,700&ver=3.5' type='text/css' media='all' />
-  <link rel='stylesheet' href="../css/style.css" type='text/css' media='all' />
-  <link rel='stylesheet' href="../css/lead_media_queries.css" type='text/css' media='screen' />
+ 
   <style>
     .top-page-title {
-      background: url(<%=@background_image%>) no-repeat top center;
+      background: url(http://students.flatironschool.com/<%= @student.background_image %>) no-repeat top center;
     }
   </style>
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
@@ -95,18 +92,19 @@
       <!-- Begin Splash Image -->
       <div class="top-page-title">
         <div>
-          <img src=<%=@profile_image%> class="student_pic">
+
+          <img src="http://students.flatironschool.com/<%=@student.profile_image%>" class="student_pic">
         </div>
       </div>
       <!-- End Splash Image -->
 
       <!-- Begin Title Content -->
       <div class="page-title">
-        <h4 class="ib_main_header"><%=@name%></h4>
+        <h4 class="ib_main_header"><%=@student.name%></h4>
         <div class="social-icons">
-          <a href=<%=@twitter%>><i class="icon-twitter ib-social-icons"></i></a>
-          <a href=<%=@linkedin%>><i class="icon-linkedin-sign ib-social-icons"></i></a>
-          <a href=<%=@github%>><i class="icon-github ib-social-icons"></i></a>
+          <a href="<%=@student.twitter%>"><i class="icon-twitter ib-social-icons"></i></a>
+          <a href="<%=@student.linkedin%>"><i class="icon-linkedin-sign ib-social-icons"></i></a>
+          <a href="<%=@student.github%>"><i class="icon-github ib-social-icons"></i></a>
           <a href="#"><i class="icon-rss ib-social-icons"></i></a>
         </div>
 
@@ -115,7 +113,7 @@
             <ul class="testimonials slides">
               <li id="text-7" class="widget_text" style="list-style: none; display: list-item;">
                 <div class="textwidget">
-                  <h3><%=@quote%></h3>
+                  <h3><%=@student.quote%></h3>
                 </div>
               </li>
             </ul>
@@ -139,7 +137,7 @@
                 <div class="services-title"><h3>Biography</h3></div>
                 <div class="clear"></div>
                 <p>
-                 <%=@bio%>
+                 <%=@student.bio%>
                 </p>
               </div>
             </div>
@@ -149,7 +147,7 @@
                 <div class="services-title"><h3>Education</h3></div>
                 <div class="clear"></div>
                 <ul>
-                  <li><%=@education%></li>
+                  <li><%= @student.education %></li>
                 </ul>
               </div>
             </div>
@@ -159,7 +157,7 @@
                 <div class="services-title"><h3>Work</h3></div>
                 <div class="clear"></div>
                 <p>
-                  <%=@work%>
+                  <%=@student.work%>
                 </p>
               </div>
             </div>
@@ -175,7 +173,7 @@
               <div class="services-wrap section coder-cred" id="equalize">
 
                 <div class="column fourth">
-                  <a href=<%=@github%> target="_blank"><img src="../img/github.png" alt="GitHub" width="130px"></a>
+                  <a href="<%=@student.github%>" target="_blank"><img src="../img/github.png" alt="GitHub" width="130px"></a>
                 </div>
               </div>
               <!-- End Service -->
@@ -229,9 +227,15 @@
                 <i class="icon-github-alt icon-2x"></i>
               </a>
             </li>
+
           </ul>
         </div>
       </div>
+      
+     
+<a class="button" href="/students/<%= @student.slug %>/edit">Edit Student</a>
+
+
       <div class="footer-text-right">
         <div class="copyright">
           &copy; 2014. The Flatiron School.
@@ -241,27 +245,7 @@
     </div>
   </div>
   <!-- End Footer -->
-  
-  <script type='text/javascript' src="../js/jquery.js"></script>
-  <script type='text/javascript' src="../js/smooth-scroll.js"></script>
-  <script type="text/javascript">
-    jQuery('a').smoothScroll({offset: -175, speed: 1000});
-    jQuery('.go-to-link a').smoothScroll();
-  </script>
 
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-33578770-1']);
-    _gaq.push(['_setDomainName', 'flatironschool.com']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
 
 </body>
 </html>

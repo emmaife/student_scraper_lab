@@ -49,8 +49,8 @@ class StudentsController < ApplicationController
   end
 
   post '/students/:slug' do
-    student = Student.find(params[:slug])
-    params[:students][:education].gsub!(/\n/, ",")
+    student = Student.find_by(slug: params[:slug])
+    params[:student][:education].gsub!(/\n/, ",")
     redirect "/students/#{student.slug}", 303
   end
 

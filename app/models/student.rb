@@ -1,12 +1,7 @@
 class Student < ActiveRecord::Base
+  before_save :slugify!
 
-  def name=(name)
-    super(name)
-    self.slug=slugify
+  def slugify!
+    self.slug = self.name.downcase.gsub(/\s/, "-")
   end
-
-  def slugify
-    self.name.gsub(/\s/, "-").downcase
-  end
-
 end

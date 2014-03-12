@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require 'pry'
 
 describe StudentsController do
   # Every route should be within it's own context.
@@ -47,20 +48,66 @@ describe StudentsController do
   end
   
   context 'GET /students/new' do
+    it "responds to the request" do
+      get 'students/new'
+
+      expect(last_response).to be_ok
+    end
+    
+    it "renders the new student form" do
+      get 'students/new'
+
+      expect(last_response.body).to include("New Student")
+    end
   end
   
   context 'POST /students' do
-    it "creates a new student"
-      expect(Student.find_by(name: "Flatiron Student")).to be_empty
-      post '/students', {student: {name: "Flatiron Student"}}
-      expect(Student.find_by(name: "Flatiron Student")).not_to be_empty
+    before(:each) do
+      post '/students', {"student"=>
+       {"name"=>"Something",
+        "work"=>"Something",
+        "work_title"=>"Something",
+        "personal_project"=>"Something",
+        "twitter"=>"Something",
+        "linkedin"=>"Something",
+        "github"=>"Something",
+        "profile_image"=>"Something",
+        "background_image"=>"Something",
+        "quote"=>"Something",
+        "bio"=>"Something",
+        "education"=>"Something"}}
     end
 
-    it "" do
+    it "respond to the request" do
+      expect(last_response).to be_ok
     end
+
+    it "should create a new instance of student" do
+      expect(Student.last.name).to eq("Something")
+    end
+
+    it "should redirect to the student's show page" do
+      expect(last_response).to be_redirect
+    end
+
   end
 
   context 'GET /students/slug' do
+  end
+
+  context 'GET /students/1' do
+
+    before do
+      #let(:student){Student.new.tap{|s| s.name = "Flatiron Student"}}
+      student = Student.create(:name => 'laura conwill')
+      #binding.pry
+      get "/students/#{student.slug}"
+    end
+
+    it 'responsed with a 200' do
+      expect(last_response).to be_ok
+    end
+
   end
 
   # This context should only be about testing the edit form.

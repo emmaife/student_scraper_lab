@@ -1,0 +1,26 @@
+<h1>Edit Student</h1>
+<form action="/students/<%= @student.slug %>" method="post" role="form">
+  <input type="hidden" name="_method" value="put">
+  <% values = {
+  "name"=>"Name",
+  "work"=>"Work",
+  "work_title"=>"Work Title",
+  "personal_project"=>"Personal Project",
+  "twitter"=>"Twitter",
+  "linkedin"=>"LinkedIn",
+  "github"=>"Github",
+  "profile_image"=>"Profile Image",
+  "background_image"=>"Background Image",
+  "quote"=>"Quote",
+  "bio"=>"Bio",
+  "education"=>"Education",
+  }
+  values.each do |key,value| %>
+  <p>
+  <label for="<%= key %>"><%= value %></label>
+  <input id="<%= key %>" type="text" name="student[<%= key %>]" 
+  value="<%= @student.send(key).gsub('"',"&quot") %>">
+  </p>
+  <% end %>
+  <input type="submit" value="submit">
+</form>

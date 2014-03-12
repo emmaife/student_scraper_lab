@@ -39,7 +39,7 @@ class StudentScraper
   end
 
   def parse_profile_image(student_page)
-    student_page.css('.top-page-title div img')[0].attributes["src"].value
+    relative(student_page.css('.top-page-title div img')[0].attributes["src"].value)
   end
 
   def parse_background_image(student_page)
@@ -66,13 +66,14 @@ class StudentScraper
     students_array.collect do |student|
       student_page = Nokogiri::HTML(open(student_page_url(student)))
       name = student_page.css('h4.ib_main_header').text
-      
+
       # This is using the find_or_create method defined by Sequel
       # http://sequel.rubyforge.org/rdoc/classes/Sequel/Model/ClassMethods.html#method-i-find_or_create
       student = Student.find_or_create_by(:name => name)
 
       student.profile_image = parse_profile_image(student_page)
       student.background_image = parse_background_image(student_page)
+      student.personal_project = parse_personal_project(student_page)
 
       social_media  = parse_social_media(student_page)
       student.twitter = social_media[0]
@@ -84,10 +85,10 @@ class StudentScraper
       student.work = value_missing
       student.work_title = parse_work_title(student_page)
       student.education = parse_education(student_page)
-      
+
       puts "Saving student ##{student.id} (#{student.name})..." if student.save
       student
-   end
+    end
   end
 
   def call
@@ -100,5 +101,10 @@ class StudentScraper
     index_page.css('li.home-blog-post div.blog-thumb a').collect do |link|
       link.attr('href')
     end
+  end
+
+  def relative(url)
+    url.concat((url.slice!(-4..-1)).downcase)
+    url.include?("http") ? url : self.main_index_url+(url[2..-1])
   end
 end

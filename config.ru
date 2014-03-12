@@ -6,7 +6,7 @@ end
 
 
 use Rack::MethodOverride
-#use Rack::Static, :root => 'public', :urls => ['/']
+use Rack::Static, :root => 'public', :urls => ["/images","/js","/css"]
 
 
 use StudentsController

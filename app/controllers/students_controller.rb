@@ -3,9 +3,10 @@
 class StudentsController < ApplicationController
 
   get '/' do
-    # Homepage action to display the student index.
-    # Load all the students into an instance variable.
-    # We use the ::all method on the Student class, provided by Sequel
+    redirect to '/students'
+  end
+
+  get '/students' do
     @students = Student.all
     erb :'students/index.html' # render the index.erb within app/views/students
 

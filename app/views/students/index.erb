@@ -1,0 +1,44 @@
+
+
+<h1>ruby 004: the cool kids</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>About</th>
+      <th>Work Title</th>
+      <th>Personal Project</th>
+      <!-- <th>Social Media</th> -->
+      <!-- <th>Twitter</th>
+      <th>Linked In</th>
+      <th>Github</th> -->
+      <th>Quote</th>
+      <th>Bio</th>
+      <th>Education</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @students.each do |s| %>
+  <tr>
+  <td> 
+    <a href = '/students/<%= s.slug %>'>
+      <img src = "<%= s.profile_image%>" style="width:500px;">
+    </a>
+  </td>
+  <td><%= s.name %><br/>
+    <a href="<%= s.twitter%>">Twitter</a><br/>
+    <a href="<%= s.linkedin%>">LinkedIn</a><br/>
+    <a href="<%= s.github%>">Github</a></td>
+  <td> <%= s.work_title%></td>
+  <td> <%= s.personal_project%></td>
+  <!-- <td> <a href="<%= s.twitter%>">Twitter</a>
+       <a href="<%= s.linkedin%>">LinkedIn</a>
+       <a href="<%= s.github%>">Github</a></td> -->
+  <td> <%= s.quote%></td>
+  <td> <%= s.bio.size>100 ? s.bio[0..100]+'...' : s.bio%></td>
+  <td> <%= s.education.size>100 ? s.education[0..100]+'...' : s.education%></td>
+  </tr>
+<% end %>
+</tbody>
+</table>

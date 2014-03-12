@@ -3,13 +3,12 @@
 class StudentsController < ApplicationController
 
   get '/' do
-    redirect to '/students'
+    redirect '/students', 303
   end
 
   get '/students' do
     @students = Student.all
     erb :'students/index.html' # render the index.erb within app/views/students
-
   end
 
   get '/students/new' do

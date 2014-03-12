@@ -14,19 +14,20 @@ ActiveRecord::Schema.define(version: 1) do
 
   create_table "students", force: true do |t|
     t.string   "name"
-    t.string   "profile_image"
-    t.string   "background_image"
+    t.string   "slug"
+    t.string   "work"
+    t.string   "work_title"
+    t.string   "personal_project"
     t.string   "twitter"
     t.string   "linkedin"
     t.string   "github"
+    t.string   "profile_image"
+    t.string   "background_image"
     t.string   "quote"
-    t.string   "bio"
-    t.string   "work"
-    t.string   "work_title"
-    t.string   "education"
+    t.text     "bio"
+    t.text     "education"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
   end
 
 end

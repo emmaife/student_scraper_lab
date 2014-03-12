@@ -3,14 +3,6 @@ require_relative '../spec_helper'
 describe Student do
   context 'with slugs' do
     describe '#slugify!' do
-      it "formats a slug based on a student's name" do
-        # Remember that subject will by default be a new instance
-        # of the class being described.
-        subject.name = "Avi Flombaum"
-
-        expect(subject.slug).to eq('avi-flombaum')
-      end
-
       it 'saves the slug to the database on create' do
         # You will need to read this and learn about model hooks.
         # http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html

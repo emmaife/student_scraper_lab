@@ -1,5 +1,4 @@
 require_relative '../spec_helper'
-require 'pry'
 
 describe StudentsController do
   # Every route should be within it's own context.
@@ -29,6 +28,7 @@ describe StudentsController do
     before do
       Student.should_receive(:all).and_return([student])
       get '/'
+      follow_redirect!
     end
 
     # A good controller test you can write for every single route/action
@@ -79,10 +79,12 @@ describe StudentsController do
     end
 
     it "respond to the request" do
+      follow_redirect!
       expect(last_response).to be_ok
     end
 
     it "should create a new instance of student" do
+      follow_redirect!
       expect(Student.last.name).to eq("Something")
     end
 
@@ -98,9 +100,7 @@ describe StudentsController do
   context 'GET /students/1' do
 
     before do
-      #let(:student){Student.new.tap{|s| s.name = "Flatiron Student"}}
       student = Student.create(:name => 'laura conwill')
-      #binding.pry
       get "/students/#{student.slug}"
     end
 
